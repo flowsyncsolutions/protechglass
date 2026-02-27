@@ -1,65 +1,347 @@
 import Image from "next/image";
 
+const phoneDisplay = "(662) 328-7570";
+const phoneHref = "tel:+16623287570";
+const textHref = "sms:+16623287570";
+const businessEmail = "Protechglassworks@gmail.com";
+const emailHref = `mailto:${businessEmail}?subject=Quote%20Request`;
+const address = "215 Conway Dr, Columbus, MS 39702";
+const mapHref = "https://maps.google.com/?q=215+Conway+Dr,+Columbus,+MS+39702";
+const instagramHref = "https://www.instagram.com/protechglass.columbus/";
+
+const serviceGroups = ["Auto", "Residential", "Business"];
+
+const offerings = [
+  {
+    title: "Windshield Repair & Replacement",
+    description:
+      "Chip repair and full windshield replacement for a wide range of vehicles.",
+  },
+  {
+    title: "ADAS Recalibration Support",
+    description:
+      "Post-windshield service calibration support for camera-based safety systems.",
+  },
+  {
+    title: "Auto Glass Replacement",
+    description:
+      "Side and back glass replacement with careful cleanup and secure installation.",
+  },
+  {
+    title: "Home Window Glass Repair",
+    description:
+      "Residential glass repairs and replacements for cracked, broken, or fogged panes.",
+  },
+  {
+    title: "Shower Door Installation",
+    description:
+      "Clean, modern shower glass installation measured to your exact opening.",
+  },
+  {
+    title: "Storefront & Business Glass",
+    description:
+      "Commercial glass replacement and storefront installation for local businesses.",
+  },
+  {
+    title: "Heavy Equipment Glass",
+    description:
+      "Replacement glass for heavy machinery and work equipment applications.",
+  },
+  {
+    title: "Custom Glass & Glass Cutting",
+    description:
+      "Custom patterned glass and precision cutting for specialty projects.",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Call, Text, or Email",
+    description:
+      "Reach out with your glass need and include photos if available for faster quoting.",
+  },
+  {
+    title: "Receive Your Estimate",
+    description:
+      "You get clear pricing and project details with straightforward communication.",
+  },
+  {
+    title: "Repair or Replacement",
+    description:
+      "Work is completed with attention to fit, safety, and clean finish.",
+  },
+];
+
+const serviceAreas = [
+  "Columbus, MS",
+  "New Hope",
+  "Caledonia",
+  "Steens",
+  "Starkville",
+  "West Point",
+  "Lowndes County",
+  "Nearby Mississippi communities",
+];
+
+const highlightItems = [
+  "Auto glass",
+  "Residential windows",
+  "Storefront glass",
+  "Call or text for quotes",
+];
+
 export default function Home() {
+  const year = new Date().getFullYear();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="site-root" id="top">
+      <header className="site-header">
+        <div className="container nav-row">
+          <a className="brand" href="#top" aria-label="Pro-Tech Glass home">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/IMG_5050.png"
+              alt="Pro-Tech Glass mark"
+              width={928}
+              height={925}
+              className="brand-mark-image"
+              priority
             />
-            Deploy Now
+            <span className="brand-copy">
+              <span className="brand-title">PRO-TECH GLASS</span>
+              <span className="brand-subtitle">AUTO • RESIDENTIAL • BUSINESS</span>
+            </span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+
+          <nav className="nav-links" aria-label="Primary navigation">
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#coverage">Coverage</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <a className="header-cta" href={phoneHref}>
+            {phoneDisplay}
           </a>
         </div>
+      </header>
+
+      <main>
+        <section className="section hero">
+          <div className="container hero-grid">
+            <div className="reveal">
+              <p className="section-kicker">Columbus, Mississippi</p>
+              <h1 className="hero-title">
+                Glass repair and replacement for auto, residential, and commercial
+                projects.
+              </h1>
+              <p className="lead">
+                Pro-Tech Glass is a full-service glass company located in Columbus,
+                MS. From windshield replacement to storefront installs and home
+                window glass repairs, we handle the full job with clear
+                communication.
+              </p>
+
+              <div className="service-pill-row">
+                {serviceGroups.map((group) => (
+                  <span className="service-pill" key={group}>
+                    {group}
+                  </span>
+                ))}
+              </div>
+
+              <div className="action-row">
+                <a className="button button-primary" href={phoneHref}>
+                  Call {phoneDisplay}
+                </a>
+                <a className="button button-secondary" href={textHref}>
+                  Text For A Quote
+                </a>
+                <a className="button button-secondary" href="#services">
+                  View Services
+                </a>
+              </div>
+            </div>
+
+            <aside className="hero-panel reveal delay-1">
+              <Image
+                src="/IMG_5050.png"
+                alt="Pro-Tech Glass symbol"
+                width={928}
+                height={925}
+                className="panel-logo"
+              />
+              <p className="panel-kicker">Quick Contact</p>
+              <ul className="panel-list">
+                {highlightItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <a className="hero-link" href={emailHref}>
+                {businessEmail}
+              </a>
+              <a
+                className="hero-link"
+                href={mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {address}
+              </a>
+              <p className="owner-note">Owner: Steven Good</p>
+            </aside>
+          </div>
+
+          <div className="container">
+            <div className="stat-grid">
+              <article className="stat-card reveal delay-1">
+                <h2>Vehicle Glass</h2>
+                <p>Windshield repair, replacement, and ADAS-related services.</p>
+              </article>
+              <article className="stat-card reveal delay-2">
+                <h2>Home Glass</h2>
+                <p>Window glass repairs, replacements, and shower door installs.</p>
+              </article>
+              <article className="stat-card reveal delay-3">
+                <h2>Business Glass</h2>
+                <p>Storefront installation and commercial replacement work.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-surface" id="services">
+          <div className="container">
+            <p className="section-kicker">Services</p>
+            <h2 className="section-title">Full-service glass work built around your needs.</h2>
+
+            <div className="service-grid">
+              {offerings.map((service, index) => (
+                <article
+                  className="service-card reveal"
+                  key={service.title}
+                  style={{ animationDelay: `${0.06 * index}s` }}
+                >
+                  <span className="service-index">{`0${index + 1}`}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="process">
+          <div className="container">
+            <p className="section-kicker">How It Works</p>
+            <h2 className="section-title">Simple process from quote to install.</h2>
+
+            <div className="process-grid">
+              {processSteps.map((step, index) => (
+                <article
+                  className="process-card reveal"
+                  key={step.title}
+                  style={{ animationDelay: `${0.1 + index * 0.08}s` }}
+                >
+                  <span className="step-number">{index + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-surface" id="coverage">
+          <div className="container coverage-grid">
+            <div>
+              <p className="section-kicker">Coverage</p>
+              <h2 className="section-title">
+                Serving Columbus, MS and surrounding communities.
+              </h2>
+              <p className="coverage-copy">
+                If you are nearby and do not see your town listed, call or text to
+                confirm availability.
+              </p>
+              <a className="button button-primary" href={textHref}>
+                Check Availability
+              </a>
+            </div>
+
+            <div className="chip-wrap">
+              {serviceAreas.map((area) => (
+                <span className="chip" key={area}>
+                  {area}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section contact-section" id="contact">
+          <div className="container contact-wrap">
+            <div>
+              <p className="section-kicker">Contact</p>
+              <h2 className="section-title">Call, text, or email to get started.</h2>
+              <p className="contact-copy">
+                Share your vehicle details or property address and include photos to
+                speed up pricing.
+              </p>
+            </div>
+
+            <div className="contact-list">
+              <a className="contact-item" href={phoneHref}>
+                <span>Call</span>
+                <strong>{phoneDisplay}</strong>
+              </a>
+              <a className="contact-item" href={textHref}>
+                <span>Text</span>
+                <strong>{phoneDisplay}</strong>
+              </a>
+              <a className="contact-item" href={emailHref}>
+                <span>Email</span>
+                <strong>{businessEmail}</strong>
+              </a>
+              <a
+                className="contact-item"
+                href={mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Address</span>
+                <strong>{address}</strong>
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="site-footer">
+        <div className="container footer-row">
+          <div className="footer-brand">
+            <Image
+              src="/IMG_5050.png"
+              alt="Pro-Tech Glass mark"
+              width={928}
+              height={925}
+              className="footer-logo"
+            />
+            <p>{`© ${year} Pro-Tech Glass. All rights reserved.`}</p>
+          </div>
+          <div className="footer-links">
+            <a
+              className="inline-link"
+              href={instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @protechglass.columbus
+            </a>
+            <a className="inline-link" href="https://protechglasscolumbus.com">
+              protechglasscolumbus.com
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
