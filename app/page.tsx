@@ -90,6 +90,50 @@ const highlightItems = [
   "Call or text for quotes",
 ];
 
+const trustHighlights = [
+  {
+    title: "No-Hassle Service",
+    description: "Clear quotes, direct communication, and no pressure.",
+  },
+  {
+    title: "Customer-First Support",
+    description: "Local technicians who walk you through the right option.",
+  },
+];
+
+const whyChooseItems = [
+  {
+    title: "Workmanship Warranty",
+    points: ["Our repair and replacement services are backed by our workmanship warranty."],
+  },
+  {
+    title: "Personal Attention",
+    points: [
+      "You get updates throughout the job.",
+      "We explain your options before any work starts.",
+    ],
+  },
+  {
+    title: "Local Pro-Tech Values",
+    points: ["Industry-focused service quality, value, and reliability for Columbus families and businesses."],
+  },
+  {
+    title: "You Are Valued",
+    points: [
+      "We prioritize your timeline and safety.",
+      "Mobile and on-site options are available for many jobs.",
+    ],
+  },
+  {
+    title: "Auto, Residential, Commercial",
+    points: ["One team for windshield service, home windows, storefronts, and specialty glass work."],
+  },
+  {
+    title: "Fast Response Times",
+    points: ["Call or text and we can quickly discuss your project and next available scheduling window."],
+  },
+];
+
 export default function Home() {
   const year = new Date().getFullYear();
 
@@ -113,6 +157,7 @@ export default function Home() {
           </a>
 
           <nav className="nav-links" aria-label="Primary navigation">
+            <a href="#why-us">Why Us</a>
             <a href="#services">Services</a>
             <a href="#process">Process</a>
             <a href="#coverage">Coverage</a>
@@ -205,6 +250,46 @@ export default function Home() {
                 <h2>Business Glass</h2>
                 <p>Storefront installation and commercial replacement work.</p>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section choose-section" id="why-us">
+          <div className="container">
+            <div className="line-heading">
+              <span aria-hidden="true" />
+              <h2>Why Choose Pro-Tech Glass</h2>
+              <span aria-hidden="true" />
+            </div>
+
+            <div className="trust-grid">
+              {trustHighlights.map((item, index) => (
+                <article
+                  className="trust-item reveal"
+                  key={item.title}
+                  style={{ animationDelay: `${0.08 * index}s` }}
+                >
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="choose-grid">
+              {whyChooseItems.map((item, index) => (
+                <article
+                  className="choose-card reveal"
+                  key={item.title}
+                  style={{ animationDelay: `${0.1 + 0.05 * index}s` }}
+                >
+                  <h3>{item.title}</h3>
+                  <ul>
+                    {item.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
         </section>
