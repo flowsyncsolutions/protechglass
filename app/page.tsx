@@ -176,14 +176,11 @@ export default function Home() {
             <div className="reveal">
               <p className="section-kicker">Columbus, Mississippi</p>
               <h1 className="hero-title">
-                Glass repair and replacement for auto, residential, and commercial
-                projects.
+                Glass Repair &amp; Replacement in Columbus, MS
               </h1>
               <p className="lead">
-                Pro-Tech Glass is a full-service glass company located in Columbus,
-                MS. From windshield replacement to storefront installs and home
-                window glass repairs, we handle the full job with clear
-                communication.
+                Auto, residential, and commercial glass service with fast
+                scheduling and clean installs.
               </p>
 
               <div className="service-pill-row">
@@ -199,7 +196,7 @@ export default function Home() {
                   Call {phoneDisplay}
                 </a>
                 <a className="button button-secondary" href={textHref}>
-                  Text For A Quote
+                  Text for a Quote
                 </a>
                 <a className="button button-secondary" href="#services">
                   View Services

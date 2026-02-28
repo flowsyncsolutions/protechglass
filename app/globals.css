@@ -162,18 +162,18 @@ a {
 
 .hero-title {
   margin: 0;
-  max-width: 16ch;
+  max-width: 18ch;
   font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: clamp(2.32rem, 7vw, 4.48rem);
-  line-height: 0.94;
+  letter-spacing: 0.01em;
+  font-size: clamp(2rem, 5.2vw, 3.55rem);
+  line-height: 1.02;
+  text-transform: none;
 }
 
 .lead {
-  margin: 1.3rem 0 0;
-  max-width: 64ch;
-  line-height: 1.72;
+  margin: 1rem 0 0;
+  max-width: 56ch;
+  line-height: 1.62;
   color: var(--muted);
 }
 
