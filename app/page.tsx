@@ -90,6 +90,21 @@ const highlightItems = [
   "Call or text for quotes",
 ];
 
+const heroPhotos = [
+  {
+    src: "/glass-tech-1.jpg",
+    alt: "Technician repairing windshield glass on a vehicle",
+  },
+  {
+    src: "/glass-tech-2.jpg",
+    alt: "Windshield repair tools and resin setup",
+  },
+  {
+    src: "/glass-tech-3.jpg",
+    alt: "Close-up of crack repair process on windshield glass",
+  },
+];
+
 const trustHighlights = [
   {
     title: "No-Hassle Service",
@@ -204,32 +219,54 @@ export default function Home() {
               </div>
             </div>
 
-            <aside className="hero-panel reveal delay-1">
-              <Image
-                src="/IMG_5050.png"
-                alt="Pro-Tech Glass symbol"
-                width={928}
-                height={925}
-                className="panel-logo"
-              />
-              <p className="panel-kicker">Quick Contact</p>
-              <ul className="panel-list">
-                {highlightItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <a className="hero-link" href={emailHref}>
-                {businessEmail}
-              </a>
-              <a
-                className="hero-link"
-                href={mapHref}
-                target="_blank"
-                rel="noopener noreferrer"
+            <aside className="hero-aside reveal delay-1">
+              <div
+                className="hero-photo-stage"
+                aria-label="Glass repair photo gallery"
               >
-                {address}
-              </a>
-              <p className="owner-note">Owner: Steven Good</p>
+                {heroPhotos.map((photo, index) => (
+                  <figure
+                    className={`orbit-card orbit-card-${index + 1}`}
+                    key={photo.src}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={1280}
+                      height={853}
+                      className="hero-photo"
+                    />
+                  </figure>
+                ))}
+              </div>
+
+              <div className="hero-panel">
+                <Image
+                  src="/IMG_5050.png"
+                  alt="Pro-Tech Glass symbol"
+                  width={928}
+                  height={925}
+                  className="panel-logo"
+                />
+                <p className="panel-kicker">Quick Contact</p>
+                <ul className="panel-list">
+                  {highlightItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <a className="hero-link" href={emailHref}>
+                  {businessEmail}
+                </a>
+                <a
+                  className="hero-link"
+                  href={mapHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {address}
+                </a>
+                <p className="owner-note">Owner: Steven Good</p>
+              </div>
             </aside>
           </div>
 
