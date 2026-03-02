@@ -90,7 +90,7 @@ const highlightItems = [
   "Call or text for quotes",
 ];
 
-const heroPhotos = [
+const heroPhotoSeed = [
   {
     src: "/glass-tech-1.jpg",
     alt: "Technician repairing windshield glass on a vehicle",
@@ -101,9 +101,39 @@ const heroPhotos = [
   },
   {
     src: "/glass-tech-3.jpg",
-    alt: "Close-up of crack repair process on windshield glass",
+    alt: "Windshield repair tool positioned on auto glass",
+  },
+  {
+    src: "/glass-tech-4.jpg",
+    alt: "Windshield resin bridge tool setup for repair",
+  },
+  {
+    src: "/glass-tech-5.jpg",
+    alt: "Automotive glass chip repair in progress",
   },
 ];
+
+const heroPhotoPositions = [
+  "50% 50%",
+  "38% 48%",
+  "64% 42%",
+  "30% 56%",
+  "72% 46%",
+  "45% 38%",
+  "58% 60%",
+  "40% 40%",
+  "66% 54%",
+  "34% 45%",
+];
+
+const heroPhotos = Array.from({ length: 20 }, (_, index) => {
+  const base = heroPhotoSeed[index % heroPhotoSeed.length];
+
+  return {
+    ...base,
+    position: heroPhotoPositions[index % heroPhotoPositions.length],
+  };
+});
 
 const trustHighlights = [
   {
@@ -220,14 +250,12 @@ export default function Home() {
             </div>
 
             <aside className="hero-aside reveal delay-1">
-              <div
-                className="hero-photo-stage"
-                aria-label="Glass repair photo gallery"
-              >
+              <div className="hero-slideshow" aria-label="Glass repair slideshow">
                 {heroPhotos.map((photo, index) => (
                   <figure
-                    className={`orbit-card orbit-card-${index + 1}`}
-                    key={photo.src}
+                    className="hero-slide"
+                    key={`${photo.src}-${index}`}
+                    style={{ animationDelay: `${index * 5}s` }}
                   >
                     <Image
                       src={photo.src}
@@ -235,6 +263,7 @@ export default function Home() {
                       width={1280}
                       height={853}
                       className="hero-photo"
+                      style={{ objectPosition: photo.position }}
                     />
                   </figure>
                 ))}
