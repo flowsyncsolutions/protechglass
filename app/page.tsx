@@ -5,8 +5,11 @@ const phoneHref = "tel:+16623287570";
 const textHref = "sms:+16623287570";
 const businessEmail = "Protechglassworks@gmail.com";
 const emailHref = `mailto:${businessEmail}?subject=Quote%20Request`;
-const address = "25 Crescent Drive, Columbus, MS 39705";
+const addressStreet = "25 Crescent Drive";
+const addressCityState = "Columbus, MS 39705";
+const address = `${addressStreet}, ${addressCityState}`;
 const mapHref = "https://maps.google.com/?q=25+Crescent+Drive,+Columbus,+MS+39705";
+const mapEmbedSrc = "https://www.google.com/maps?q=25+Crescent+Drive,+Columbus,+MS+39705&output=embed";
 const instagramHref = "https://www.instagram.com/protechglass.columbus/";
 
 const serviceGroups = ["Auto", "Residential", "Business"];
@@ -421,6 +424,45 @@ export default function Home() {
                   {area}
                 </span>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-surface location-section" id="location">
+          <div className="container">
+            <div className="line-heading">
+              <span aria-hidden="true" />
+              <h2>Our Columbus Location</h2>
+              <span aria-hidden="true" />
+            </div>
+
+            <div className="location-stack">
+              <div className="location-meta reveal">
+                <p className="location-business">Pro-Tech Glass</p>
+                <address className="location-address">
+                  <span>{addressStreet}</span>
+                  <span>{addressCityState}</span>
+                </address>
+              </div>
+
+              <p className="location-callout reveal delay-1">
+                Call{" "}
+                <a className="location-call-link" href={phoneHref}>
+                  {phoneDisplay}
+                </a>{" "}
+                now for fast, local service.
+              </p>
+
+              <div className="map-frame-wrap reveal delay-2">
+                <iframe
+                  title="Map to Pro-Tech Glass in Columbus, Mississippi"
+                  src={mapEmbedSrc}
+                  className="map-frame"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
           </div>
         </section>
