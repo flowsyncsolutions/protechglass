@@ -697,6 +697,41 @@ a {
   border: 0;
 }
 
+.location-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.location-trust-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.location-trust-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(17, 18, 22, 0.12);
+  background: #ffffff;
+  padding: 1rem 1.05rem;
+  box-shadow: 0 12px 24px rgba(17, 18, 22, 0.06);
+  text-align: center;
+}
+
+.location-trust-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.location-trust-copy {
+  margin: 0.52rem 0 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
 .contact-section {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -855,6 +890,10 @@ a {
   }
 
   .coverage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-trust-grid {
     grid-template-columns: 1fr;
   }
 

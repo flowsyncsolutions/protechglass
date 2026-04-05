@@ -182,6 +182,21 @@ const whyChooseItems = [
   },
 ];
 
+const locationTrustItems = [
+  {
+    title: "Local Service",
+    description: "Based in Columbus and serving nearby communities.",
+  },
+  {
+    title: "Fast Response",
+    description: "Call or text for scheduling and quick quote follow-up.",
+  },
+  {
+    title: "Full-Service Glass",
+    description: "Auto, residential, and commercial work from one team.",
+  },
+];
+
 export default function Home() {
   const year = new Date().getFullYear();
 
@@ -462,6 +477,26 @@ export default function Home() {
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+              </div>
+
+              <div className="location-actions reveal delay-2">
+                <a
+                  className="button button-primary"
+                  href={mapHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Directions
+                </a>
+              </div>
+
+              <div className="location-trust-grid reveal delay-3">
+                {locationTrustItems.map((item) => (
+                  <article className="location-trust-card" key={item.title}>
+                    <p className="location-trust-title">{item.title}</p>
+                    <p className="location-trust-copy">{item.description}</p>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
