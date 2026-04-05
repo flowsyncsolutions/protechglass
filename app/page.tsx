@@ -1,3 +1,5 @@
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import Image from "next/image";
 
 const phoneDisplay = "(662) 328-7570";
@@ -93,29 +95,6 @@ const highlightItems = [
   "Call or text for quotes",
 ];
 
-const heroPhotoSeed = [
-  {
-    src: "/glass-tech-1.jpg",
-    alt: "Technician repairing windshield glass on a vehicle",
-  },
-  {
-    src: "/glass-tech-2.jpg",
-    alt: "Windshield repair tools and resin setup",
-  },
-  {
-    src: "/glass-tech-3.jpg",
-    alt: "Windshield repair tool positioned on auto glass",
-  },
-  {
-    src: "/glass-tech-4.jpg",
-    alt: "Windshield resin bridge tool setup for repair",
-  },
-  {
-    src: "/glass-tech-5.jpg",
-    alt: "Automotive glass chip repair in progress",
-  },
-];
-
 const heroPhotoPositions = [
   "50% 50%",
   "38% 48%",
@@ -129,14 +108,35 @@ const heroPhotoPositions = [
   "34% 45%",
 ];
 
-const heroPhotos = Array.from({ length: 20 }, (_, index) => {
-  const base = heroPhotoSeed[index % heroPhotoSeed.length];
+const heroPhotoFolder = "hero-photos";
+const heroPhotoLimit = 20;
 
-  return {
-    ...base,
-    position: heroPhotoPositions[index % heroPhotoPositions.length],
-  };
-});
+async function getHeroPhotos() {
+  try {
+    const directory = path.join(process.cwd(), "public", heroPhotoFolder);
+    const files = await readdir(directory);
+    const photoFiles = files
+      .filter((file) => /\.(avif|jpe?g|png|webp)$/i.test(file))
+      .sort((left, right) => left.localeCompare(right, undefined, { numeric: true }))
+      .slice(0, heroPhotoLimit);
+
+    if (photoFiles.length === 0) {
+      return [];
+    }
+
+    return Array.from({ length: heroPhotoLimit }, (_, index) => {
+      const file = photoFiles[index % photoFiles.length];
+
+      return {
+        src: `/${heroPhotoFolder}/${file}`,
+        alt: `Glass repair project photo ${index + 1}`,
+        position: heroPhotoPositions[index % heroPhotoPositions.length],
+      };
+    });
+  } catch {
+    return [];
+  }
+}
 
 const trustHighlights = [
   {
@@ -197,8 +197,9 @@ const locationTrustItems = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
   const year = new Date().getFullYear();
+  const heroPhotos = await getHeroPhotos();
 
   return (
     <div className="site-root" id="top">
@@ -268,24 +269,36 @@ export default function Home() {
             </div>
 
             <aside className="hero-aside reveal delay-1">
-              <div className="hero-slideshow" aria-label="Glass repair slideshow">
-                {heroPhotos.map((photo, index) => (
-                  <figure
-                    className="hero-slide"
-                    key={`${photo.src}-${index}`}
-                    style={{ animationDelay: `${index * 5}s` }}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      width={1280}
-                      height={853}
-                      className="hero-photo"
-                      style={{ objectPosition: photo.position }}
-                    />
-                  </figure>
-                ))}
-              </div>
+              {heroPhotos.length > 0 ? (
+                <div className="hero-slideshow" aria-label="Glass repair slideshow">
+                  {heroPhotos.map((photo, index) => (
+                    <figure
+                      className="hero-slide"
+                      key={`${photo.src}-${index}`}
+                      style={{ animationDelay: `${index * 5}s` }}
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        width={1280}
+                        height={853}
+                        className="hero-photo"
+                        style={{ objectPosition: photo.position }}
+                      />
+                    </figure>
+                  ))}
+                </div>
+              ) : (
+                <div className="hero-slideshow hero-slideshow-empty" aria-hidden="true">
+                  <Image
+                    src="/IMG_5050.png"
+                    alt=""
+                    width={928}
+                    height={925}
+                    className="hero-empty-logo"
+                  />
+                </div>
+              )}
 
               <div className="hero-panel">
                 <Image
