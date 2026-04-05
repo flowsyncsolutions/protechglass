@@ -5,8 +5,8 @@ const phoneHref = "tel:+16623287570";
 const textHref = "sms:+16623287570";
 const businessEmail = "Protechglassworks@gmail.com";
 const emailHref = `mailto:${businessEmail}?subject=Quote%20Request`;
-const address = "215 Conway Dr, Columbus, MS 39702";
-const mapHref = "https://maps.google.com/?q=215+Conway+Dr,+Columbus,+MS+39702";
+const address = "25 Crescent Drive, Columbus, MS 39705";
+const mapHref = "https://maps.google.com/?q=25+Crescent+Drive,+Columbus,+MS+39705";
 const instagramHref = "https://www.instagram.com/protechglass.columbus/";
 
 const serviceGroups = ["Auto", "Residential", "Business"];
