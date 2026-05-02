@@ -11,6 +11,8 @@ const address = `${addressStreet}, ${addressCityState}`;
 const mapHref = "https://maps.google.com/?q=25+Crescent+Drive,+Columbus,+MS+39705";
 const mapEmbedSrc = "https://www.google.com/maps?q=25+Crescent+Drive,+Columbus,+MS+39705&output=embed";
 const instagramHref = "https://www.instagram.com/protechglass.columbus/";
+const mapQuestReviewsHref = "https://www.mapquest.com/us/mississippi/pro-tech-auto-glass-634398461";
+const superpagesReviewsHref = "https://www.superpages.com/columbus-ms/bpp/pro-tech-auto-glass-553613916";
 
 const serviceGroups = ["Auto", "Residential", "Business"];
 
@@ -136,6 +138,29 @@ const locationTrustItems = [
   },
 ];
 
+const reviewItems = [
+  {
+    source: "Yelp via MapQuest",
+    summary: "Back window replacement completed quickly, with the vehicle looking fantastic afterward.",
+    detail: "Auto glass replacement",
+  },
+  {
+    source: "Yelp via MapQuest",
+    summary: "Mobile windshield crack repair looked great and came at a reasonable price.",
+    detail: "Windshield repair",
+  },
+  {
+    source: "Yelp via MapQuest",
+    summary: "Professional work with a fast turnaround, from a customer who would use them again.",
+    detail: "Repeat customer",
+  },
+  {
+    source: "Superpages",
+    summary: "A public reviewer highlighted the quality of the work and service.",
+    detail: "Quality service",
+  },
+];
+
 export default function Home() {
   const year = new Date().getFullYear();
 
@@ -160,6 +185,7 @@ export default function Home() {
 
           <nav className="nav-links" aria-label="Primary navigation">
             <a href="#why-us">Why Us</a>
+            <a href="#reviews">Reviews</a>
             <a href="#services">Services</a>
             <a href="#process">Process</a>
             <a href="#coverage">Coverage</a>
@@ -276,6 +302,56 @@ export default function Home() {
                   <p>{item.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section reviews-section" id="reviews">
+          <div className="container reviews-wrap">
+            <div className="reviews-header">
+              <p className="section-kicker">Reviews</p>
+              <h2>Public review highlights from local glass customers.</h2>
+              <p>
+                Pro-Tech Auto Glass public listings show 5-star review activity
+                from customers who mention fast turnaround, mobile repair, and
+                quality service.
+              </p>
+            </div>
+
+            <div className="reviews-grid">
+              {reviewItems.map((review, index) => (
+                <article
+                  className="review-card reveal"
+                  key={`${review.source}-${review.detail}`}
+                  style={{ animationDelay: `${0.08 * index}s` }}
+                >
+                  <div className="review-rating" aria-label="5 out of 5 stars">
+                    5.0 / 5
+                  </div>
+                  <p>{review.summary}</p>
+                  <span>{review.detail}</span>
+                  <small>{review.source}</small>
+                </article>
+              ))}
+            </div>
+
+            <div className="review-source-row">
+              <a
+                className="inline-link"
+                href={mapQuestReviewsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                MapQuest listing
+              </a>
+              <a
+                className="inline-link"
+                href={superpagesReviewsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Superpages listing
+              </a>
             </div>
           </div>
         </section>

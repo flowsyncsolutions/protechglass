@@ -481,6 +481,101 @@ a {
   line-height: 1.58;
 }
 
+.reviews-section {
+  background: #111216;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reviews-wrap {
+  display: grid;
+  gap: 2rem;
+}
+
+.reviews-header {
+  max-width: 48rem;
+}
+
+.reviews-header .section-kicker {
+  color: #ff6f75;
+}
+
+.reviews-header h2 {
+  margin: 0;
+  font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
+  font-size: 3.2rem;
+  line-height: 0.96;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.reviews-header p {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.64;
+}
+
+.reviews-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.review-card {
+  border-radius: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  min-height: 15.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-rating {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 0.36rem 0.64rem;
+  color: #ffffff;
+  background: rgba(215, 23, 31, 0.92);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.review-card p {
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.58;
+}
+
+.review-card span,
+.review-card small {
+  display: block;
+}
+
+.review-card span {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.review-card small {
+  margin-top: 0.28rem;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.review-source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.review-source-row .inline-link {
+  text-decoration-color: rgba(255, 255, 255, 0.42);
+}
+
 .section-surface {
   background: #ffffff;
   border-top: 1px solid rgba(17, 18, 22, 0.1);
@@ -986,6 +1081,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section-heading-row {
     grid-template-columns: 1fr;
   }
@@ -1044,6 +1143,7 @@ a {
 
   .stat-grid,
   .choose-grid,
+  .reviews-grid,
   .process-grid,
   .contact-list {
     grid-template-columns: 1fr;
@@ -1076,6 +1176,10 @@ a {
   }
 
   .choose-header h2 {
+    font-size: 2.35rem;
+  }
+
+  .reviews-header h2 {
     font-size: 2.35rem;
   }
 
