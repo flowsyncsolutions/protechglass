@@ -25,7 +25,7 @@ const offerings = [
   {
     title: "Auto Glass Replacement",
     category: "Auto",
-    image: "/hero-photos/06-broken-auto-window.jpg",
+    image: "/hero-photos/10-auto-glass-replacement.webp",
     description:
       "Side glass, back glass, and specialty vehicle glass replaced with clean fitment.",
   },
