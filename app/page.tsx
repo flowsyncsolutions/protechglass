@@ -93,14 +93,6 @@ const serviceAreas = [
   "Nearby Mississippi communities",
 ];
 
-const highlightItems = [
-  "Auto glass",
-  "Residential windows",
-  "Storefront glass",
-  "Bullet resistant glass",
-  "Call or text for quotes",
-];
-
 const heroPhotoPositions = [
   "50% 50%",
   "38% 48%",
@@ -242,19 +234,52 @@ export default async function Home() {
 
       <main>
         <section className="section hero">
-          <div className="container hero-grid">
-            <div className="reveal">
+          {heroPhotos.length > 0 ? (
+            <div className="hero-slideshow" aria-hidden="true">
+              {heroPhotos.map((photo, index) => (
+                <figure
+                  className="hero-slide"
+                  key={`${photo.src}-${index}`}
+                  style={{ animationDelay: `${index * 5}s` }}
+                >
+                  <Image
+                    src={photo.src}
+                    alt=""
+                    width={1280}
+                    height={853}
+                    className="hero-photo"
+                    style={{ objectPosition: photo.position }}
+                    priority={index === 0}
+                  />
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <div className="hero-slideshow hero-slideshow-empty" aria-hidden="true">
+              <Image
+                src="/IMG_5050.png"
+                alt=""
+                width={928}
+                height={925}
+                className="hero-empty-logo"
+                priority
+              />
+            </div>
+          )}
+
+          <div className="container hero-content">
+            <div className="hero-copy reveal">
               <p className="section-kicker">Columbus, Mississippi</p>
               <h1 className="hero-title">
                 Glass Repair &amp; Replacement in Columbus, MS
               </h1>
               <p className="lead">
                 Auto, residential, and commercial glass service with fast
-                scheduling and clean installs.
+                scheduling, clean installs, and security-focused glass options.
               </p>
 
               <div className="service-pill-row">
-                {serviceGroups.map((group) => (
+                {[...serviceGroups, "Bullet Resistant"].map((group) => (
                   <span className="service-pill" key={group}>
                     {group}
                   </span>
@@ -274,66 +299,25 @@ export default async function Home() {
               </div>
             </div>
 
-            <aside className="hero-aside reveal delay-1">
-              {heroPhotos.length > 0 ? (
-                <div className="hero-slideshow" aria-label="Glass repair slideshow">
-                  {heroPhotos.map((photo, index) => (
-                    <figure
-                      className="hero-slide"
-                      key={`${photo.src}-${index}`}
-                      style={{ animationDelay: `${index * 5}s` }}
-                    >
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        width={1280}
-                        height={853}
-                        className="hero-photo"
-                        style={{ objectPosition: photo.position }}
-                      />
-                    </figure>
-                  ))}
+            <div className="hero-contact-bar reveal delay-1">
+              <Image
+                src="/IMG_5050.png"
+                alt="Pro-Tech Glass mark"
+                width={928}
+                height={925}
+                className="hero-contact-logo"
+              />
+              <div className="hero-contact-details">
+                <p>Quick Contact</p>
+                <div>
+                  <a href={phoneHref}>{phoneDisplay}</a>
+                  <a href={emailHref}>{businessEmail}</a>
+                  <a href={mapHref} target="_blank" rel="noopener noreferrer">
+                    {address}
+                  </a>
                 </div>
-              ) : (
-                <div className="hero-slideshow hero-slideshow-empty" aria-hidden="true">
-                  <Image
-                    src="/IMG_5050.png"
-                    alt=""
-                    width={928}
-                    height={925}
-                    className="hero-empty-logo"
-                  />
-                </div>
-              )}
-
-              <div className="hero-panel">
-                <Image
-                  src="/IMG_5050.png"
-                  alt="Pro-Tech Glass symbol"
-                  width={928}
-                  height={925}
-                  className="panel-logo"
-                />
-                <p className="panel-kicker">Quick Contact</p>
-                <ul className="panel-list">
-                  {highlightItems.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <a className="hero-link" href={emailHref}>
-                  {businessEmail}
-                </a>
-                <a
-                  className="hero-link"
-                  href={mapHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {address}
-                </a>
-                <p className="owner-note">Owner: Steven Good</p>
               </div>
-            </aside>
+            </div>
           </div>
 
           <div className="container">
