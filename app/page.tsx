@@ -57,6 +57,11 @@ const offerings = [
     description:
       "Custom patterned glass and precision cutting for specialty projects.",
   },
+  {
+    title: "Bullet Resistant & Shatter Proof Solutions",
+    description:
+      "Security-focused glass options for homes, businesses, storefronts, and specialty projects.",
+  },
 ];
 
 const processSteps = [
@@ -92,6 +97,7 @@ const highlightItems = [
   "Auto glass",
   "Residential windows",
   "Storefront glass",
+  "Bullet resistant glass",
   "Call or text for quotes",
 ];
 
