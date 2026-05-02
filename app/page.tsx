@@ -18,7 +18,7 @@ const offerings = [
   {
     title: "Windshield Repair & Replacement",
     category: "Auto",
-    image: "/hero-photos/05-broken-windshield.jpg",
+    image: "/hero-photos/09-windshield-replacement.jpg",
     description:
       "Chip repair and windshield replacement for daily drivers, work trucks, and fleet vehicles.",
   },
