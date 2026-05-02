@@ -46,7 +46,7 @@ const offerings = [
   {
     title: "Shower Door Installation",
     category: "Residential",
-    image: "/hero-photos/03-window-hardware-repair.jpg",
+    image: "/hero-photos/12-shower-door-installation.jpg",
     description:
       "Clean shower glass installation measured to your exact opening.",
   },
@@ -67,7 +67,7 @@ const offerings = [
   {
     title: "Heavy Equipment Glass",
     category: "Equipment",
-    image: "/hero-photos/01-commercial-glass-handling.jpg",
+    image: "/hero-photos/13-heavy-equipment-glass.webp",
     description:
       "Replacement glass for machinery, equipment, and demanding work applications.",
   },
