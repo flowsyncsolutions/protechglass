@@ -152,23 +152,14 @@ a {
   background: #111216;
 }
 
-.hero-slideshow {
+.hero-video-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: -2;
 }
 
-.hero-slideshow-empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(215, 23, 31, 0.22), transparent 36%),
-    #111216;
-}
-
-.hero-slideshow::after {
+.hero-video-wrap::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -192,34 +183,12 @@ a {
   z-index: -1;
 }
 
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  opacity: 0;
-  animation: hero-slide-fade 100s linear infinite;
-  z-index: 1;
-}
-
-.hero-slide:first-child {
-  opacity: 1;
-}
-
-.hero-photo {
+.hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  animation: hero-photo-drift 18s ease-in-out infinite alternate;
   filter: saturate(0.96) contrast(1.04);
-}
-
-.hero-empty-logo {
-  width: clamp(4.8rem, 18vw, 7rem);
-  height: auto;
-  border-radius: 0.8rem;
-  object-fit: cover;
-  object-position: center;
 }
 
 .hero-content {
@@ -229,26 +198,6 @@ a {
   align-self: stretch;
   align-content: end;
   z-index: 1;
-}
-
-@keyframes hero-slide-fade {
-  0%,
-  4% {
-    opacity: 1;
-  }
-  5%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-photo-drift {
-  from {
-    transform: scale(1.02) translateY(0);
-  }
-  to {
-    transform: scale(1.1) translateY(-1.4%);
-  }
 }
 
 .section-kicker {
@@ -440,11 +389,25 @@ a {
 }
 
 .choose-section {
-  padding-top: 4.4rem;
-  padding-bottom: 4.6rem;
-  background: #ffffff;
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f6f8 100%);
   border-top: 1px solid rgba(17, 18, 22, 0.09);
   border-bottom: 1px solid rgba(17, 18, 22, 0.09);
+}
+
+.choose-header {
+  max-width: 48rem;
+}
+
+.choose-header h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
+  font-size: 3.2rem;
+  line-height: 0.96;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .line-heading {
@@ -474,67 +437,48 @@ a {
   text-align: center;
 }
 
-.trust-grid {
-  margin-top: 1.5rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.trust-item {
-  border-radius: 1rem;
-  border: 1px solid rgba(17, 18, 22, 0.14);
-  background: rgba(255, 255, 255, 0.86);
-  padding: 1rem 1.06rem;
-}
-
-.trust-item h3 {
-  margin: 0;
-  color: #1e242f;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  letter-spacing: 0.01em;
-  font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
-}
-
-.trust-item p {
-  margin: 0.5rem 0 0;
-  color: var(--muted);
-  line-height: 1.56;
-}
-
 .choose-grid {
-  margin-top: 1.2rem;
+  margin-top: 2rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .choose-card {
-  border-radius: 1rem;
+  min-height: 17rem;
+  border-radius: 0.55rem;
   border: 1px solid rgba(17, 18, 22, 0.13);
-  background: rgba(255, 255, 255, 0.96);
-  padding: 1rem 1.06rem;
-  box-shadow: 0 12px 24px rgba(17, 18, 22, 0.06);
+  background: #ffffff;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 30px rgba(17, 18, 22, 0.07);
+}
+
+.choose-number {
+  color: rgba(215, 23, 31, 0.22);
+  font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: 0;
 }
 
 .choose-card h3 {
-  margin: 0;
+  margin: 2.2rem 0 0;
   color: var(--brand-dark);
-  font-size: 1.42rem;
+  font-size: 1.7rem;
   font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+  line-height: 0.98;
 }
 
-.choose-card ul {
+.choose-card p {
   margin: 0.78rem 0 0;
-  padding-left: 1.05rem;
-}
-
-.choose-card li {
-  color: #213f74;
-  line-height: 1.54;
+  color: var(--muted);
+  line-height: 1.58;
 }
 
 .section-surface {
@@ -1038,6 +982,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .choose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section-heading-row {
     grid-template-columns: 1fr;
   }
@@ -1095,7 +1043,6 @@ a {
   }
 
   .stat-grid,
-  .trust-grid,
   .choose-grid,
   .process-grid,
   .contact-list {
@@ -1126,6 +1073,14 @@ a {
 
   .line-heading h2 {
     font-size: 1.28rem;
+  }
+
+  .choose-header h2 {
+    font-size: 2.35rem;
+  }
+
+  .choose-card {
+    min-height: 14rem;
   }
 
   .service-grid {
@@ -1166,20 +1121,6 @@ a {
   .delay-3 {
     opacity: 1;
     animation: none;
-  }
-
-  .hero-slide {
-    opacity: 0;
-    animation: none;
-  }
-
-  .hero-slide:first-child {
-    opacity: 1;
-  }
-
-  .hero-photo {
-    animation: none;
-    transform: none;
   }
 
   .button,

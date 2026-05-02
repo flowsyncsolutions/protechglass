@@ -1,5 +1,3 @@
-import { readdir } from "node:fs/promises";
-import path from "node:path";
 import Image from "next/image";
 
 const phoneDisplay = "(662) 328-7570";
@@ -104,90 +102,22 @@ const serviceAreas = [
   "Nearby Mississippi communities",
 ];
 
-const heroPhotoPositions = [
-  "50% 50%",
-  "38% 48%",
-  "64% 42%",
-  "30% 56%",
-  "72% 46%",
-  "45% 38%",
-  "58% 60%",
-  "40% 40%",
-  "66% 54%",
-  "34% 45%",
-];
-
-const heroPhotoFolder = "hero-photos";
-const heroPhotoLimit = 20;
-
-async function getHeroPhotos() {
-  try {
-    const directory = path.join(process.cwd(), "public", heroPhotoFolder);
-    const files = await readdir(directory);
-    const photoFiles = files
-      .filter((file) => /\.(avif|jpe?g|png|webp)$/i.test(file))
-      .sort((left, right) => left.localeCompare(right, undefined, { numeric: true }))
-      .slice(0, heroPhotoLimit);
-
-    if (photoFiles.length === 0) {
-      return [];
-    }
-
-    return Array.from({ length: heroPhotoLimit }, (_, index) => {
-      const file = photoFiles[index % photoFiles.length];
-
-      return {
-        src: `/${heroPhotoFolder}/${file}`,
-        alt: `Glass repair project photo ${index + 1}`,
-        position: heroPhotoPositions[index % heroPhotoPositions.length],
-      };
-    });
-  } catch {
-    return [];
-  }
-}
-
-const trustHighlights = [
-  {
-    title: "No-Hassle Service",
-    description: "Clear quotes, direct communication, and no pressure.",
-  },
-  {
-    title: "Customer-First Support",
-    description: "Local technicians who walk you through the right option.",
-  },
-];
-
 const whyChooseItems = [
   {
-    title: "Workmanship Warranty",
-    points: ["Our repair and replacement services are backed by our workmanship warranty."],
+    title: "Clear Quotes",
+    description: "Straight answers before work starts, with no pressure or surprise add-ons.",
   },
   {
-    title: "Personal Attention",
-    points: [
-      "You get updates throughout the job.",
-      "We explain your options before any work starts.",
-    ],
+    title: "Clean Installations",
+    description: "Careful fitment, cleanup, and finish across vehicle, home, and business jobs.",
   },
   {
-    title: "Local Pro-Tech Values",
-    points: ["Industry-focused service quality, value, and reliability for Columbus families and businesses."],
+    title: "Local Columbus Service",
+    description: "A nearby team serving Columbus and surrounding Mississippi communities.",
   },
   {
-    title: "You Are Valued",
-    points: [
-      "We prioritize your timeline and safety.",
-      "Mobile and on-site options are available for many jobs.",
-    ],
-  },
-  {
-    title: "Auto, Residential, Commercial",
-    points: ["One team for windshield service, home windows, storefronts, and specialty glass work."],
-  },
-  {
-    title: "Fast Response Times",
-    points: ["Call or text and we can quickly discuss your project and next available scheduling window."],
+    title: "One Glass Team",
+    description: "Auto glass, residential windows, storefronts, and security glass in one place.",
   },
 ];
 
@@ -206,9 +136,8 @@ const locationTrustItems = [
   },
 ];
 
-export default async function Home() {
+export default function Home() {
   const year = new Date().getFullYear();
-  const heroPhotos = await getHeroPhotos();
 
   return (
     <div className="site-root" id="top">
@@ -245,38 +174,17 @@ export default async function Home() {
 
       <main>
         <section className="section hero">
-          {heroPhotos.length > 0 ? (
-            <div className="hero-slideshow" aria-hidden="true">
-              {heroPhotos.map((photo, index) => (
-                <figure
-                  className="hero-slide"
-                  key={`${photo.src}-${index}`}
-                  style={{ animationDelay: `${index * 5}s` }}
-                >
-                  <Image
-                    src={photo.src}
-                    alt=""
-                    width={1280}
-                    height={853}
-                    className="hero-photo"
-                    style={{ objectPosition: photo.position }}
-                    priority={index === 0}
-                  />
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <div className="hero-slideshow hero-slideshow-empty" aria-hidden="true">
-              <Image
-                src="/IMG_5050.png"
-                alt=""
-                width={928}
-                height={925}
-                className="hero-empty-logo"
-                priority
-              />
-            </div>
-          )}
+          <div className="hero-video-wrap" aria-hidden="true">
+            <video
+              className="hero-video"
+              src="/protech-hero.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </div>
 
           <div className="container hero-content">
             <div className="hero-copy reveal">
@@ -351,23 +259,9 @@ export default async function Home() {
 
         <section className="section choose-section" id="why-us">
           <div className="container">
-            <div className="line-heading">
-              <span aria-hidden="true" />
-              <h2>Why Choose Pro-Tech Glass</h2>
-              <span aria-hidden="true" />
-            </div>
-
-            <div className="trust-grid">
-              {trustHighlights.map((item, index) => (
-                <article
-                  className="trust-item reveal"
-                  key={item.title}
-                  style={{ animationDelay: `${0.08 * index}s` }}
-                >
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </article>
-              ))}
+            <div className="choose-header">
+              <p className="section-kicker">Why Choose Us</p>
+              <h2>Built for clear answers, clean work, and local service.</h2>
             </div>
 
             <div className="choose-grid">
@@ -377,12 +271,9 @@ export default async function Home() {
                   key={item.title}
                   style={{ animationDelay: `${0.1 + 0.05 * index}s` }}
                 >
+                  <span className="choose-number">{`0${index + 1}`}</span>
                   <h3>{item.title}</h3>
-                  <ul>
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <p>{item.description}</p>
                 </article>
               ))}
             </div>
