@@ -19,48 +19,59 @@ const serviceGroups = ["Auto", "Residential", "Business"];
 const offerings = [
   {
     title: "Windshield Repair & Replacement",
+    category: "Auto",
+    image: "/hero-photos/05-broken-windshield.jpg",
     description:
-      "Chip repair and full windshield replacement for a wide range of vehicles.",
-  },
-  {
-    title: "ADAS Recalibration Support",
-    description:
-      "Post-windshield service calibration support for camera-based safety systems.",
+      "Chip repair and windshield replacement for daily drivers, work trucks, and fleet vehicles.",
   },
   {
     title: "Auto Glass Replacement",
+    category: "Auto",
+    image: "/hero-photos/06-broken-auto-window.jpg",
     description:
-      "Side and back glass replacement with careful cleanup and secure installation.",
+      "Side glass, back glass, and specialty vehicle glass replaced with clean fitment.",
   },
   {
-    title: "Home Window Glass Repair",
+    title: "Residential Window Glass",
+    category: "Residential",
+    image: "/hero-photos/02-residential-window-install.jpg",
     description:
-      "Residential glass repairs and replacements for cracked, broken, or fogged panes.",
-  },
-  {
-    title: "Shower Door Installation",
-    description:
-      "Clean, modern shower glass installation measured to your exact opening.",
+      "Home window repairs and replacements for cracked, broken, or fogged panes.",
   },
   {
     title: "Storefront & Business Glass",
+    category: "Commercial",
+    image: "/hero-photos/08-storefront-glass.jpg",
     description:
       "Commercial glass replacement and storefront installation for local businesses.",
   },
   {
-    title: "Heavy Equipment Glass",
+    title: "Shower Door Installation",
+    category: "Residential",
+    image: "/hero-photos/03-window-hardware-repair.jpg",
     description:
-      "Replacement glass for heavy machinery and work equipment applications.",
+      "Clean shower glass installation measured to your exact opening.",
+  },
+  {
+    title: "Bullet Resistant & Shatter Proof Solutions",
+    category: "Security",
+    image: "/hero-photos/07-shatter-resistant-glass.jpg",
+    description:
+      "Security-focused glass options for homes, storefronts, and specialty projects.",
   },
   {
     title: "Custom Glass & Glass Cutting",
+    category: "Custom",
+    image: "/hero-photos/04-glass-cutting.jpg",
     description:
       "Custom patterned glass and precision cutting for specialty projects.",
   },
   {
-    title: "Bullet Resistant & Shatter Proof Solutions",
+    title: "Heavy Equipment Glass",
+    category: "Equipment",
+    image: "/hero-photos/01-commercial-glass-handling.jpg",
     description:
-      "Security-focused glass options for homes, businesses, storefronts, and specialty projects.",
+      "Replacement glass for machinery, equipment, and demanding work applications.",
   },
 ];
 
@@ -380,8 +391,16 @@ export default async function Home() {
 
         <section className="section section-surface" id="services">
           <div className="container">
-            <p className="section-kicker">Services</p>
-            <h2 className="section-title">Full-service glass work built around your needs.</h2>
+            <div className="section-heading-row">
+              <div>
+                <p className="section-kicker">Services</p>
+                <h2 className="section-title">Glass work for vehicles, homes, and businesses.</h2>
+              </div>
+              <p className="section-intro">
+                From broken windshields to storefront glass and security-focused
+                solutions, Pro-Tech Glass handles the work with clear communication.
+              </p>
+            </div>
 
             <div className="service-grid">
               {offerings.map((service, index) => (
@@ -390,11 +409,40 @@ export default async function Home() {
                   key={service.title}
                   style={{ animationDelay: `${0.06 * index}s` }}
                 >
-                  <span className="service-index">{`0${index + 1}`}</span>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
+                  <div className="service-media">
+                    <Image
+                      src={service.image}
+                      alt=""
+                      width={700}
+                      height={500}
+                      className="service-image"
+                    />
+                    <span className="service-category">{service.category}</span>
+                  </div>
+                  <div className="service-card-body">
+                    <span className="service-index">{`0${index + 1}`}</span>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="service-cta-band" aria-label="Request glass service">
+          <div className="container service-cta-wrap">
+            <div>
+              <p>Need glass replaced?</p>
+              <h2>Call or text Pro-Tech Glass today.</h2>
+            </div>
+            <div className="service-cta-actions">
+              <a className="button button-primary" href={phoneHref}>
+                Call {phoneDisplay}
+              </a>
+              <a className="button button-dark" href={textHref}>
+                Text for a Quote
+              </a>
             </div>
           </div>
         </section>
