@@ -329,8 +329,11 @@ export default function Home() {
                   key={review.reviewer}
                   style={{ animationDelay: `${0.08 * index}s` }}
                 >
-                  <div className="review-rating" aria-label="5 out of 5 stars">
-                    Google 5.0
+                  <div className="review-rating" aria-label="Google rating: 5 out of 5 stars">
+                    <span className="review-stars" aria-hidden="true">
+                      ★★★★★
+                    </span>
+                    <span>Google 5.0</span>
                   </div>
                   <p>{review.summary}</p>
                   <div>
