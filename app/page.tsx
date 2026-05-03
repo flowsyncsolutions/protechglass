@@ -226,15 +226,14 @@ export default function Home() {
             <div className="hero-copy reveal">
               <p className="section-kicker">Columbus, Mississippi</p>
               <h1 className="hero-title">
-                Glass Repair &amp; Replacement in Columbus, MS
+                Auto, Home &amp; Business Glass
               </h1>
               <p className="lead">
-                Auto, residential, and commercial glass service with fast
-                scheduling, clean installs, and security-focused glass options.
+                Repair, replacement, and custom glass service in Columbus, MS.
               </p>
 
               <div className="service-pill-row">
-                {[...serviceGroups, "Bullet Resistant"].map((group) => (
+                {[...serviceGroups, "Security Glass"].map((group) => (
                   <span className="service-pill" key={group}>
                     {group}
                   </span>
