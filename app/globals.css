@@ -565,17 +565,6 @@ a {
   color: rgba(255, 255, 255, 0.58);
 }
 
-.review-source-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.review-source-row .inline-link {
-  text-decoration-color: rgba(255, 255, 255, 0.42);
-}
-
 .section-surface {
   background: #ffffff;
   border-top: 1px solid rgba(17, 18, 22, 0.1);
