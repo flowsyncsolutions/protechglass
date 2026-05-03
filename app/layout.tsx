@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Barlow_Condensed, DM_Sans } from "next/font/google";
+import { AnalyticsClickTracker } from "./components/AnalyticsClickTracker";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import "./globals.css";
 
 const headingFont = Barlow_Condensed({
@@ -61,6 +63,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
         {children}
+        <GoogleAnalytics />
+        <AnalyticsClickTracker />
         <Analytics />
       </body>
     </html>

@@ -197,7 +197,12 @@ export default function Home() {
             <a href="#contact">Contact</a>
           </nav>
 
-          <a className="header-cta" href={phoneHref}>
+          <a
+            className="header-cta"
+            href={phoneHref}
+            data-analytics-event="phone_click"
+            data-analytics-label="Header phone button"
+          >
             {phoneDisplay}
           </a>
         </div>
@@ -237,10 +242,20 @@ export default function Home() {
               </div>
 
               <div className="action-row">
-                <a className="button button-primary" href={phoneHref}>
+                <a
+                  className="button button-primary"
+                  href={phoneHref}
+                  data-analytics-event="phone_click"
+                  data-analytics-label="Hero call button"
+                >
                   Call {phoneDisplay}
                 </a>
-                <a className="button button-secondary" href={textHref}>
+                <a
+                  className="button button-secondary"
+                  href={textHref}
+                  data-analytics-event="text_quote_click"
+                  data-analytics-label="Hero text quote button"
+                >
                   Text for a Quote
                 </a>
                 <a className="button button-secondary" href="#services">
@@ -260,9 +275,27 @@ export default function Home() {
               <div className="hero-contact-details">
                 <p>Quick Contact</p>
                 <div>
-                  <a href={phoneHref}>{phoneDisplay}</a>
-                  <a href={emailHref}>{businessEmail}</a>
-                  <a href={mapHref} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={phoneHref}
+                    data-analytics-event="phone_click"
+                    data-analytics-label="Hero quick contact phone"
+                  >
+                    {phoneDisplay}
+                  </a>
+                  <a
+                    href={emailHref}
+                    data-analytics-event="email_click"
+                    data-analytics-label="Hero quick contact email"
+                  >
+                    {businessEmail}
+                  </a>
+                  <a
+                    href={mapHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-analytics-event="directions_click"
+                    data-analytics-label="Hero quick contact address"
+                  >
                     {address}
                   </a>
                 </div>
@@ -394,10 +427,20 @@ export default function Home() {
               <h2>Call or text Pro-Tech Glass today.</h2>
             </div>
             <div className="service-cta-actions">
-              <a className="button button-primary" href={phoneHref}>
+              <a
+                className="button button-primary"
+                href={phoneHref}
+                data-analytics-event="phone_click"
+                data-analytics-label="Service CTA call button"
+              >
                 Call {phoneDisplay}
               </a>
-              <a className="button button-dark" href={textHref}>
+              <a
+                className="button button-dark"
+                href={textHref}
+                data-analytics-event="text_quote_click"
+                data-analytics-label="Service CTA text quote button"
+              >
                 Text for a Quote
               </a>
             </div>
@@ -436,7 +479,12 @@ export default function Home() {
                 If you are nearby and do not see your town listed, call or text to
                 confirm availability.
               </p>
-              <a className="button button-primary" href={textHref}>
+              <a
+                className="button button-primary"
+                href={textHref}
+                data-analytics-event="text_quote_click"
+                data-analytics-label="Coverage check availability button"
+              >
                 Check Availability
               </a>
             </div>
@@ -470,7 +518,12 @@ export default function Home() {
 
               <p className="location-callout reveal delay-1">
                 Call{" "}
-                <a className="location-call-link" href={phoneHref}>
+                <a
+                  className="location-call-link"
+                  href={phoneHref}
+                  data-analytics-event="phone_click"
+                  data-analytics-label="Location call link"
+                >
                   {phoneDisplay}
                 </a>{" "}
                 now for fast, local service.
@@ -493,6 +546,8 @@ export default function Home() {
                   href={mapHref}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics-event="directions_click"
+                  data-analytics-label="Location get directions button"
                 >
                   Get Directions
                 </a>
@@ -522,15 +577,30 @@ export default function Home() {
             </div>
 
             <div className="contact-list">
-              <a className="contact-item" href={phoneHref}>
+              <a
+                className="contact-item"
+                href={phoneHref}
+                data-analytics-event="phone_click"
+                data-analytics-label="Contact call card"
+              >
                 <span>Call</span>
                 <strong>{phoneDisplay}</strong>
               </a>
-              <a className="contact-item" href={textHref}>
+              <a
+                className="contact-item"
+                href={textHref}
+                data-analytics-event="text_quote_click"
+                data-analytics-label="Contact text card"
+              >
                 <span>Text</span>
                 <strong>{phoneDisplay}</strong>
               </a>
-              <a className="contact-item" href={emailHref}>
+              <a
+                className="contact-item"
+                href={emailHref}
+                data-analytics-event="email_click"
+                data-analytics-label="Contact email card"
+              >
                 <span>Email</span>
                 <strong>{businessEmail}</strong>
               </a>
@@ -539,6 +609,8 @@ export default function Home() {
                 href={mapHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics-event="directions_click"
+                data-analytics-label="Contact address card"
               >
                 <span>Address</span>
                 <strong>{address}</strong>
