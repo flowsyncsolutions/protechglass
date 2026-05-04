@@ -165,10 +165,11 @@ a {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(8, 9, 12, 0.9) 0%,
-    rgba(8, 9, 12, 0.72) 42%,
-    rgba(8, 9, 12, 0.3) 72%,
-    rgba(8, 9, 12, 0.72) 100%
+    rgba(8, 9, 12, 0.94) 0%,
+    rgba(8, 9, 12, 0.82) 25%,
+    rgba(8, 9, 12, 0.46) 56%,
+    rgba(8, 9, 12, 0.18) 76%,
+    rgba(8, 9, 12, 0.48) 100%
   );
   pointer-events: none;
   z-index: 2;
@@ -202,16 +203,8 @@ a {
 
 .hero-copy {
   width: min(100%, 48rem);
-  padding: clamp(1.4rem, 3vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-left: 0.28rem solid var(--brand);
-  background: linear-gradient(
-    135deg,
-    rgba(15, 16, 20, 0.78),
-    rgba(15, 16, 20, 0.42)
-  );
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(16px);
+  padding-left: clamp(1rem, 2vw, 1.35rem);
+  border-left: 0.26rem solid var(--brand);
 }
 
 .section-kicker {
@@ -1140,6 +1133,15 @@ a {
 
   .hero-copy {
     padding: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 0.28rem solid var(--brand);
+    background: linear-gradient(
+      135deg,
+      rgba(15, 16, 20, 0.78),
+      rgba(15, 16, 20, 0.42)
+    );
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(16px);
   }
 
   .hero-title {
