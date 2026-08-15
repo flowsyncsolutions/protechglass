@@ -1,7 +1,8 @@
 import Image from "next/image";
 
-const phoneDisplay = "(662) 549-2544";
-const phoneHref = "tel:+16625492544";
+const phoneDisplay = "(662) 328-7570";
+const phoneHref = "tel:+16623287570";
+const textDisplay = "(662) 549-2544";
 const textHref = "sms:+16625492544";
 const businessEmail = "Protechglassworks@gmail.com";
 const emailHref = `mailto:${businessEmail}?subject=Quote%20Request`;
@@ -592,7 +593,7 @@ export default function Home() {
                 data-analytics-label="Contact text card"
               >
                 <span>Text</span>
-                <strong>{phoneDisplay}</strong>
+                <strong>{textDisplay}</strong>
               </a>
               <a
                 className="contact-item"
