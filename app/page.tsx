@@ -22,7 +22,7 @@ const offerings = [
   {
     title: "Windshield Repair & Replacement",
     category: "Auto",
-    image: "/hero-photos/09-windshield-replacement.jpg",
+    image: "/hero-photos/protech-01-windshield-replacement.jpg",
     description:
       "Chip repair and windshield replacement for daily drivers, work trucks, and fleet vehicles.",
   },
