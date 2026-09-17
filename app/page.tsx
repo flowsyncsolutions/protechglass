@@ -1,17 +1,20 @@
 import Image from "next/image";
 
-const phoneDisplay = "(662) 328-7570";
-const phoneHref = "tel:+16623287570";
-const textDisplay = "(662) 549-2544";
-const textHref = "sms:+16625492544";
-const businessEmail = "Protechglassworks@gmail.com";
-const emailHref = `mailto:${businessEmail}?subject=Quote%20Request`;
-const addressStreet = "25 Crescent Drive";
-const addressCityState = "Columbus, MS 39705";
-const address = `${addressStreet}, ${addressCityState}`;
-const mapHref = "https://maps.google.com/?q=25+Crescent+Drive,+Columbus,+MS+39705";
-const mapEmbedSrc = "https://www.google.com/maps?q=25+Crescent+Drive,+Columbus,+MS+39705&output=embed";
-const instagramHref = "https://www.instagram.com/protechglass.columbus/";
+import { SiteFooter } from "./components/SiteFooter";
+import { SiteHeader } from "./components/SiteHeader";
+import {
+  address,
+  addressCityState,
+  addressStreet,
+  businessEmail,
+  emailHref,
+  mapEmbedSrc,
+  mapHref,
+  phoneDisplay,
+  phoneHref,
+  textDisplay,
+  textHref,
+} from "./site-info";
 
 const serviceGroups = ["Auto", "Residential", "Business"];
 
@@ -168,46 +171,9 @@ const reviewItems = [
 ];
 
 export default function Home() {
-  const year = new Date().getFullYear();
-
   return (
     <div className="site-root" id="top">
-      <header className="site-header">
-        <div className="container nav-row">
-          <a className="brand" href="#top" aria-label="Pro-Tech Glass home">
-            <Image
-              src="/IMG_5050.png"
-              alt="Pro-Tech Glass mark"
-              width={928}
-              height={925}
-              className="brand-mark-image"
-              priority
-            />
-            <span className="brand-copy">
-              <span className="brand-title">PRO-TECH GLASS</span>
-              <span className="brand-subtitle">AUTO • RESIDENTIAL • BUSINESS</span>
-            </span>
-          </a>
-
-          <nav className="nav-links" aria-label="Primary navigation">
-            <a href="#why-us">Why Us</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#coverage">Coverage</a>
-            <a href="#contact">Contact</a>
-          </nav>
-
-          <a
-            className="header-cta"
-            href={phoneHref}
-            data-analytics-event="phone_click"
-            data-analytics-label="Header phone button"
-          >
-            {phoneDisplay}
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="section hero">
@@ -620,33 +586,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-row">
-          <div className="footer-brand">
-            <Image
-              src="/IMG_5050.png"
-              alt="Pro-Tech Glass mark"
-              width={928}
-              height={925}
-              className="footer-logo"
-            />
-            <p>{`© ${year} Pro-Tech Glass. All rights reserved.`}</p>
-          </div>
-          <div className="footer-links">
-            <a
-              className="inline-link"
-              href={instagramHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @protechglass.columbus
-            </a>
-            <a className="inline-link" href="https://protechglasscolumbus.com">
-              protechglasscolumbus.com
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
