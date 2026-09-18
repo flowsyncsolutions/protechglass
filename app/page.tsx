@@ -29,7 +29,7 @@ const offerings = [
   {
     title: "Auto Glass Replacement",
     category: "Auto",
-    image: "/hero-photos/10-auto-glass-replacement.webp",
+    image: "/hero-photos/protech-02-auto-glass-replacement.jpg",
     description:
       "Side glass, back glass, and specialty vehicle glass replaced with clean fitment.",
   },
