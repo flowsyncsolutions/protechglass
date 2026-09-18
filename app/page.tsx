@@ -36,7 +36,7 @@ const offerings = [
   {
     title: "Residential Window Glass",
     category: "Residential",
-    image: "/hero-photos/11-residential-window-glass.jpg",
+    image: "/hero-photos/protech-03-residential-window-glass.jpg",
     description:
       "Home window repairs and replacements for cracked, broken, or fogged panes.",
   },
