@@ -43,7 +43,7 @@ const offerings = [
   {
     title: "Storefront & Business Glass",
     category: "Commercial",
-    image: "/hero-photos/08-storefront-glass.jpg",
+    image: "/hero-photos/protech-04-storefront-glass.jpg",
     description:
       "Commercial glass replacement and storefront installation for local businesses.",
   },
