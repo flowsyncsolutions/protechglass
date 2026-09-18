@@ -50,7 +50,7 @@ const offerings = [
   {
     title: "Shower Door Installation",
     category: "Residential",
-    image: "/hero-photos/12-shower-door-installation.jpg",
+    image: "/hero-photos/protech-05-shower-door-installation.jpg",
     description:
       "Clean shower glass installation measured to your exact opening.",
   },
