@@ -464,7 +464,7 @@ a {
 }
 
 .choose-number {
-  color: rgba(215, 23, 31, 0.22);
+  color: rgba(215, 23, 31, 0.4);
   font-family: var(--font-heading), "Franklin Gothic Medium", sans-serif;
   font-size: 4rem;
   font-weight: 700;
